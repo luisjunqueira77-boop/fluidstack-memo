@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FluidStack — Follow-On Opportunity</title>
-
-  <meta name="robots" content="noindex, nofollow"/>
+  <meta name="robots" content="noindex, nofollow" />
 
   <style>
     :root {
-      --bg: #faf9f7;
+      --bg: #f4f5f7;
       --paper: #ffffff;
-      --ink: #1b1b1b;
-      --muted: #6b6b6b;
+      --ink: #1c1c1c;
+      --muted: #5f6368;
       --accent: #b8944b;
-      --border: #e3e0da;
+      --border: #e6e6e6;
     }
 
     * { box-sizing: border-box; }
@@ -24,122 +23,85 @@
       background: var(--bg);
       color: var(--ink);
       font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    .container {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 56px 24px 96px;
+    .page {
+      max-width: 880px;
+      margin: 56px auto;
+      background: var(--paper);
+      padding: 72px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     }
 
     header {
       border-bottom: 2px solid var(--accent);
-      padding-bottom: 28px;
-      margin-bottom: 48px;
+      padding-bottom: 32px;
+      margin-bottom: 56px;
     }
 
     .topline {
       display: flex;
       justify-content: space-between;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-
-    .confidential {
-      display: inline-block;
-      background: #f6efe2;
-      color: #8b0000;
-      padding: 6px 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
       font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin: 0 0 6px 0;
-    }
-
-    .subtitle {
-      font-size: 1.15rem;
-      color: var(--muted);
-    }
-
-    section { margin-top: 56px; }
-
-    h2 {
-      font-size: 1.2rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 18px;
     }
 
-    p { margin-bottom: 16px; }
-
-    .box {
-      border: 1px solid var(--border);
-      background: var(--paper);
-      padding: 26px;
-      margin-top: 24px;
+    .confidential {
+      display: inline-block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #f6efe2;
+      color: #8b0000;
+      padding: 6px 14px;
+      margin-bottom: 22px;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 16px;
+    h1 {
+      font-size: 2.4rem;
+      margin: 0 0 6px 0;
     }
 
-    ul li {
-      margin-bottom: 12px;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    ul li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
+    h2 {
+      margin-top: 72px;
+      margin-bottom: 22px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
       color: var(--accent);
     }
 
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-      gap: 24px;
-      margin-top: 28px;
-    }
-
-    .metric {
-      text-align: center;
-      border: 1px solid var(--border);
-      background: var(--paper);
-      padding: 22px;
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.6rem;
-      color: var(--accent);
-      margin-bottom: 6px;
+    p {
+      margin-bottom: 18px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 28px;
+      margin: 32px 0;
       font-size: 0.95rem;
     }
 
-    th, td {
+    th {
+      text-align: right;
+      font-weight: normal;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 8px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    }
+
+    td {
       border-bottom: 1px solid var(--border);
       padding: 10px 8px;
       text-align: right;
-      vertical-align: top;
     }
 
     th:first-child,
@@ -147,32 +109,32 @@
       text-align: left;
     }
 
-    th {
-      color: var(--muted);
-      font-weight: normal;
+    .spacer {
+      height: 24px;
     }
 
-    .cta {
-      border: 2px solid var(--accent);
-      padding: 32px;
-      background: #fffdf8;
-      margin-top: 64px;
-    }
-
-    footer {
+    .disclaimer {
       margin-top: 72px;
+      font-size: 0.8rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 40px 24px;
+        margin: 24px;
+      }
     }
   </style>
 </head>
 
 <body>
-<div class="container">
+<div class="page">
 
 <header>
   <div class="topline">
-    <span>Endurance Global Ventures</span>
+    <span>ENDURANCE GLOBAL VENTURES</span>
     <span>February 2026</span>
   </div>
 
@@ -181,235 +143,89 @@
   </div>
 
   <h1>FluidStack — Follow-On Opportunity</h1>
-  <p class="subtitle">Position increase via secondary market · Entry valuation up to $9B</p>
+  <p>Position increase via secondary market · Entry valuation up to $9B</p>
 </header>
 
-<section class="box">
-  <p><strong>This document contains confidential information subject to NDA.</strong>
-  It must not be shared with third parties under any circumstances.</p>
-</section>
+<p>This document contains confidential information subject to NDA. It must not be shared with third parties under any circumstances.</p>
 
-<section class="box">
-  <h2>Limited Access</h2>
-  <p>
-    We have access to a specific block on the secondary market — the only one currently
-    approved by the company. We need <strong>indication of interest by end of this week</strong>.
-  </p>
-</section>
+<h2>LIMITED ACCESS</h2>
+<p>We have access to a specific block on the secondary market — the only one currently approved by the company. We need indication of interest by end of this week.</p>
 
-<section>
-  <h2>Why Revisit Now</h2>
+<h2>WHY REVISIT NOW</h2>
+<p>Whenever we have material updates on a portfolio company, we revisit our conviction to assess whether it’s time to sell, buy, or hold. With FluidStack, we have a rare case: even after the significant valuation increase since our initial investment in 2024, we now see the company with an upside potential even greater than we envisioned at the time of our first investment.</p>
 
-  <p>
-    Whenever we have material updates on a portfolio company, we revisit our conviction
-    to assess whether it’s time to sell, buy, or hold. With FluidStack, we have a rare case:
-    even after the significant valuation increase since our initial investment in 2024,
-    we now see the company with an upside potential <em>even greater</em> than we envisioned
-    at the time of our first investment.
-  </p>
+<p>This is because a series of transformational events has occurred since our investment, fundamentally altering the company’s risk profile and potential:</p>
 
-  <p>
-    This is because a series of transformational events has occurred since our investment,
-    fundamentally altering the company’s risk profile and potential:
-  </p>
+<p>
+✓ Google — TPU Exclusivity & Backstop: Only independent provider authorized to deploy Google TPUs outside of GCP. $100M+ in equity from Google + $10B debt backstop.<br/>
+✓ Anthropic — $50B Infrastructure Deal: $5.7B TCV contract (including $1.2B in FluidStack software). Custom-built data centers in NY and TX, delivery throughout 2026.<br/>
+✓ DC Pipeline — TeraWulf & Cipher Mining: $20B+ in contracted TCV, financed via project finance with Google backstop. Sites in production starting 2026.
+</p>
 
-  <ul>
-    <li>
-      <strong>Google — TPU Exclusivity & Backstop:</strong>
-      Only independent provider authorized to deploy Google TPUs outside of GCP.
-      $100M+ in equity from Google + $10B debt backstop.
-    </li>
-    <li>
-      <strong>Anthropic — $50B Infrastructure Deal:</strong>
-      $5.7B TCV contract (including $1.2B in FluidStack software).
-      Custom-built data centers in NY and TX, delivery throughout 2026.
-    </li>
-    <li>
-      <strong>DC Pipeline — TeraWulf & Cipher Mining:</strong>
-      $20B+ in contracted TCV, financed via project finance with Google backstop.
-      Sites in production starting 2026.
-    </li>
-  </ul>
-</section>
+<h2>THE OPPORTUNITY</h2>
 
-<section>
-  <h2>The Opportunity</h2>
+<p><strong>Entry</strong><br/>Up to $9B<br/>Under negotiation</p>
+<p><strong>2026E Revenue</strong><br/>$685M<br/>Proj. management</p>
+<p><strong>EV / Rev 2026</strong><br/>13.1x<br/>At $9B entry</p>
 
-  <div class="metrics">
-    <div class="metric"><strong>Up to $9B</strong>Entry<br/>Under negotiation</div>
-    <div class="metric"><strong>$685M</strong>2026E Revenue<br/>Proj. management</div>
-    <div class="metric"><strong>13.1×</strong>EV / Rev 2026E<br/>At $9B entry</div>
-  </div>
+<p>We are negotiating an entry at par with the last round ($8.25B post-money, in which the company raised $750M in equity), with a cap of up to $9B. This represents 13.1x EV/Revenue 2026E — a premium vs. CoreWeave, which trades at ~3–4x 2026E revenue (mkt cap ~$40B on ~$12B expected revenue). The premium is justified by significantly faster growth (244% YoY vs ~135% for CoreWeave) and the standalone software component with 80%+ gross margin, which does not exist in bare-metal neoclouds. On a 2027E revenue basis ($2.5B proj. management), the multiple compresses to 3.6x.</p>
 
-  <p>
-    We are negotiating an entry at par with the last round ($8.25B post-money, in which
-    the company raised $750M in equity), with a cap of up to $9B. This represents
-    13.1× EV/Revenue 2026E — a premium vs. CoreWeave, which trades at ~3–4× 2026E revenue
-    (market cap ~$40B on ~$12B expected revenue).
-  </p>
+<h2>MACRO CONTEXT</h2>
+<p>Global investment in AI infrastructure is the largest capex cycle in the history of technology. Morgan Stanley projects data center spending growing from $245B (2024) to ~$700B (2027). The contracts are already signed, the chips are ordered, the data centers are under construction.</p>
 
-  <p>
-    The premium is justified by significantly faster growth (244% YoY vs ~135% for CoreWeave)
-    and the <strong>standalone software component with 80%+ gross margin</strong>, which does not
-    exist in bare-metal neoclouds. On a 2027E revenue basis ($2.5B proj. management),
-    the multiple compresses to 3.6×.
-  </p>
-</section>
+<h2>INVESTMENT THESIS</h2>
 
-<section>
-  <h2>Macro Context</h2>
-  <p>
-    Global investment in AI infrastructure is the largest capex cycle in the history of
-    technology. Morgan Stanley projects data center spending growing from $245B (2024)
-    to ~$700B (2027). The contracts are already signed, the chips are ordered, the data
-    centers are under construction.
-  </p>
-</section>
+<p><strong>PILLAR 01</strong><br/>TPU Exclusivity — The Cycle That Explodes</p>
+<p>Only independent provider for Google TPUs outside of GCP. External TPU market: $17B (2026) → $296B (2029) — 159% CAGR. TPU v7 delivers ~50% more efficiency per watt than NVIDIA GB300, at half the cost per PFLOP. Neoclouds backed by NVIDIA (CoreWeave, Crusoe, Lambda) have contractual incentives not to adopt TPUs — a vacuum that only FluidStack fills.</p>
 
-<section>
-  <h2>Investment Thesis</h2>
+<p><strong>PILLAR 02</strong><br/>Software-First — Not Bare Metal</p>
+<p>Standalone software P&L with 80%+ gross margin — cluster orchestration, scheduling, fault tolerance. Software revenue: $3M (2025) → $3.4B (2029), reaching 31% of total revenue. This is the layer that differentiates FluidStack from competitors.</p>
 
-  <div class="box">
-    <strong>Pillar 01 — TPU Exclusivity — The Cycle That Explodes</strong>
-    <p>
-      Only independent provider for Google TPUs outside of GCP. External TPU market:
-      $17B (2026) → $296B (2029) — 159% CAGR. TPU v7 delivers ~50% more efficiency per watt
-      than NVIDIA GB300, at half the cost per PFLOP.
-    </p>
-    <p>
-      Neoclouds backed by NVIDIA (CoreWeave, Crusoe, Lambda) have contractual incentives
-      <em>not</em> to adopt TPUs — a vacuum that only FluidStack fills.
-    </p>
-  </div>
+<p><strong>PILLAR 03</strong><br/>Revenue De-Risked</p>
+<p>$20B+ in contracted TCV. Anthropic as anchor tenant ($5.7B TCV). Google $10B backstop (guarantees their contracts). The team includes hires who delivered Tesla Cortex and xAI Colossus in ~4 months each — the fastest large-scale deployments in the industry.</p>
 
-  <div class="box">
-    <strong>Pillar 02 — Software-First — Not Bare Metal</strong>
-    <p>
-      Standalone software P&L with 80%+ gross margin — cluster orchestration, scheduling,
-      fault tolerance. Software revenue: $3M (2025) → $3.4B (2029), reaching 31% of total revenue.
-      This is the layer that differentiates FluidStack from competitors.
-    </p>
-  </div>
+<h2>FINANCIAL PROJECTIONS (MANAGEMENT)</h2>
 
-  <div class="box">
-    <strong>Pillar 03 — Revenue De-Risked</strong>
-    <p>
-      $20B+ in contracted TCV. Anthropic as anchor tenant ($5.7B TCV). Google $10B backstop
-      guarantees contracts. Team includes hires who delivered Tesla Cortex and xAI Colossus
-      in ~4 months each — the fastest large-scale deployments in the industry.
-    </p>
-  </div>
-</section>
+<table>
+<tr><th>METRIC</th><th>2025E</th><th>2026E</th><th>2027E</th><th>2028E</th><th>2029E</th></tr>
+<tr><td>Revenue ($M)</td><td>$199</td><td>$685</td><td>$2,520</td><td>$5,610</td><td>$10,759</td></tr>
+<tr><td>Growth YoY</td><td>—</td><td>244%</td><td>268%</td><td>123%</td><td>92%</td></tr>
+<tr><td>EBITDA ($M)</td><td>$11</td><td>$228</td><td>$1,506</td><td>$3,684</td><td>$7,390</td></tr>
+<tr><td>EBITDA Margin</td><td>6%</td><td>33%</td><td>60%</td><td>66%</td><td>69%</td></tr>
+<tr><td>Software ($M)</td><td>$3</td><td>$110</td><td>$578</td><td>$1,670</td><td>$3,385</td></tr>
+<tr><td>EV/Rev (at $9B)</td><td>45.2x</td><td>13.1x</td><td>3.6x</td><td>1.6x</td><td>0.8x</td></tr>
+</table>
 
-<section>
-  <h2>Financial Projections (Management)</h2>
+<p>FluidStack management projections. In the IPO scenarios below, we apply haircuts of 25% to 50% on these projections.</p>
 
-  <table>
-    <tr>
-      <th>Metric</th><th>2025E</th><th>2026E</th><th>2027E</th><th>2028E</th><th>2029E</th>
-    </tr>
-    <tr>
-      <td>Revenue ($M)</td><td>199</td><td>685</td><td>2,520</td><td>5,610</td><td>10,759</td>
-    </tr>
-    <tr>
-      <td>Growth YoY</td><td>—</td><td>244%</td><td>268%</td><td>123%</td><td>92%</td>
-    </tr>
-    <tr>
-      <td>EBITDA ($M)</td><td>11</td><td>228</td><td>1,506</td><td>3,684</td><td>7,390</td>
-    </tr>
-    <tr>
-      <td>EBITDA Margin</td><td>6%</td><td>33%</td><td>60%</td><td>66%</td><td>69%</td>
-    </tr>
-    <tr>
-      <td>Software ($M)</td><td>3</td><td>110</td><td>578</td><td>1,670</td><td>3,385</td>
-    </tr>
-    <tr>
-      <td>EV / Rev (at $9B)</td><td>45.2×</td><td>13.1×</td><td>3.6×</td><td>1.6×</td><td>0.8×</td>
-    </tr>
-  </table>
+<h2>TRANSACTION STRUCTURE</h2>
+<p>FluidStack raised $750M in its last round ($8.25B post-money), led by Situational Awareness (Leopold Aschenbrenner, ex-OpenAI), with participation from Google and Goldman Sachs as banker. The company plans to structure a next round with traditional VC funds at significantly higher valuations, in addition to an eventual IPO — which the company targets for 2026 (and we assess as more likely in 2027). Both events are management intentions and nothing is confirmed at this time.</p>
 
-  <p><em>
-    FluidStack management projections. In the IPO scenarios below, we apply haircuts of
-    25% to 50% on these projections.
-  </em></p>
-</section>
+<p>We are entering now via company-facilitated secondary at up to $9B, with potential for material repricing in the near term.</p>
 
-<section>
-  <h2>Transaction Structure</h2>
-  <p>
-    FluidStack raised $750M in its last round ($8.25B post-money), led by Situational Awareness
-    (Leopold Aschenbrenner, ex-OpenAI), with participation from Google and Goldman Sachs as banker.
-  </p>
-  <p>
-    The company plans to structure a next round with traditional VC funds at significantly
-    higher valuations, in addition to an eventual IPO — which the company targets for 2026
-    (and we assess as more likely in 2027). Both events are management intentions and nothing
-    is confirmed at this time.
-  </p>
-  <p>
-    We are entering now via company-facilitated secondary at up to $9B, with potential for
-    material repricing in the near term.
-  </p>
-</section>
+<h2>IPO SCENARIOS — SENSITIVITY</h2>
+<p>2027E management revenue ($2.5B) as base, with three levels of execution × three multiples. CoreWeave trades at ~$40B mkt cap (~3–4x 2026E revenue). Premium of 12x and 16x justified by the software layer (80%+ GM, $3M → $3.4B).</p>
 
-<section>
-  <h2>IPO Scenarios — Sensitivity</h2>
-  <p>
-    2027E management revenue ($2.5B) as base, with three levels of execution × three multiples.
-    CoreWeave trades at ~$40B mkt cap (~3–4× 2026E revenue). Premium of 12× and 16× justified
-    by the software layer (80%+ GM, $3M → $3.4B).
-  </p>
+<p>Base case — 75% execution at 12x (premium justified by software) — implies IPO valuation of ~$22.7B, or ~2.5x on $9B entry. Even in the most conservative scenario (50% execution, no premium vs. CoreWeave), capital is protected at 1.1x.</p>
 
-  <p>
-    <strong>Base case — 75% execution at 12×</strong> implies IPO valuation of ~$22.7B,
-    or ~2.5× on $9B entry. Even in the most conservative scenario (50% execution, no premium
-    vs. CoreWeave), capital is protected at 1.1×.
-  </p>
+<p>In the optimistic scenario (full execution at 16x), FluidStack reaches ~$40B — consistent with a company growing software revenue from $3M to $3.4B in 4 years, with 60%+ EBITDA margin.</p>
 
-  <p>
-    In the optimistic scenario (full execution at 16×), FluidStack reaches ~$40B —
-    consistent with a company growing software revenue from $3M to $3.4B in 4 years,
-    with 60%+ EBITDA margin.
-  </p>
-</section>
+<h2>KEY RISKS</h2>
+<p>Anthropic concentration — significant share of TCV comes from a single client. Mitigant: Anthropic is on a trajectory to $7B ARR with a multi-cloud strategy, diversifying toward FluidStack.</p>
+<p>Durability of TPU exclusivity — Google could open access to other neoclouds. Mitigant: NVIDIA-backed neoclouds have structural conflicts; FluidStack has integrated software and signed contracts, and more distributors don’t necessarily impact demand for FluidStack’s solution.</p>
+<p>Execution of ramp-up — plan requires massive construction. Mitigant: Google $10B backstop, team with proven track record, DC partners already contracted.</p>
+<p>Liquidity timing — IPO and new rounds are management intentions and are not guaranteed. Mitigant: the company’s profile and current traction are consistent with an IPO path within the next 10–20 months.</p>
 
-<section>
-  <h2>Key Risks</h2>
-  <p>
-    <strong>Anthropic concentration:</strong> significant share of TCV comes from a single client.
-    Mitigant: Anthropic is on a trajectory to $7B ARR with a multi-cloud strategy, diversifying
-    toward FluidStack.
-  </p>
-  <p>
-    <strong>Durability of TPU exclusivity:</strong> Google could open access to other neoclouds.
-    Mitigant: NVIDIA-backed neoclouds have structural conflicts; FluidStack has integrated
-    software and signed contracts.
-  </p>
-  <p>
-    <strong>Execution of ramp-up:</strong> requires massive construction.
-    Mitigant: Google $10B backstop, proven team, DC partners already contracted.
-  </p>
-  <p>
-    <strong>Liquidity timing:</strong> IPO and new rounds are management intentions, not guaranteed.
-    Mitigant: profile and traction consistent with IPO path within 10–20 months.
-  </p>
-</section>
+<h2>NEXT STEPS</h2>
+<p>We will be investing in this opportunity. We need indication of interest by end of this week. A detailed memo will follow for those interested.</p>
 
-<section class="cta">
-  <h2>Next Steps</h2>
-  <p>
-    We will be investing in this opportunity.
-    <strong>We need indication of interest by end of this week.</strong>
-    A detailed memo will follow for those interested.
-  </p>
-  <p>
-    We are available to schedule an individual call at your convenience.
-  </p>
-</section>
+<p>We are available to schedule an individual call at your convenience.</p>
 
-<footer>
-  <p>Best regards,<br><strong>Endurance Global Ventures Team</strong></p>
-</footer>
+<p>Best regards,<br/>Endurance Global Ventures Team</p>
+
+<p class="disclaimer">
+This document is strictly confidential, subject to NDA, and intended exclusively for the Limited Partners of Endurance Global Ventures. It must not be shared, forwarded, or reproduced without prior authorization. It does not constitute an offer to sell or a solicitation to purchase securities. Financial projections are based on data provided by the company’s management and internal models — actual results may differ materially. Past performance is not a guarantee of future results. Indicated returns are gross and do not account for management or performance fees.
+</p>
 
 </div>
 </body>
